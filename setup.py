@@ -13,7 +13,7 @@ install_requires = [
 
 setup(
     name='awsprocesscreds',
-    version='0.0.1',
+    version='0.1.0',
     description='AWS Process Credential Providers.',
     long_description=README,
     author='Amazon Web Services',
@@ -25,6 +25,10 @@ setup(
     entry_points={
         'console_scripts': [
             'awsprocesscreds-saml = awsprocesscreds.cli:saml'
+        ],
+        'awsprocesscreds.saml_form_authenticators': [
+            'okta = awsprocesscreds.saml:OktaAuthenticator',
+            'adfs = awsprocesscreds.saml:ADFSFormsBasedAuthenticator'
         ]
     },
     classifiers=(

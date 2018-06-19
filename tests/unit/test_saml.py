@@ -98,6 +98,9 @@ def fetcher(generic_config, client_creator, prompter, mock_authenticator,
             provider_name: authenticator_cls
         }
 
+        def _get_saml_form_authenticators(self):
+            return self.SAML_FORM_AUTHENTICATORS
+
     saml_fetcher = MockSAMLFetcher(
         client_creator=client_creator,
         provider_name=provider_name,

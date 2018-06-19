@@ -39,7 +39,7 @@ arguments:
 * ``-e / --endpoint`` - Your SAML idp endpoint.
 * ``-u / --username`` - Your SAML username.
 * ``-p / --provider`` - The name of your SAML provider. Currently okta and
-  adfs are supported.
+  adfs are supported (However this can be extended by using python modules)
 * ``-a / --role-arn``- The role arn you wish to assume. Your SAML provider
   must be configured to give you access to this arn.
 
@@ -66,5 +66,10 @@ Example adfs configuration::
     [profile adfs]
     region = us-west-2
     credential_process = awsprocesscreds-saml -e 'https://corp.example.com/adfs/ls/IdpInitiatedSignOn.aspx?loginToRp=urn:amazon:webservices' -u Monty -p adfs -a arn:aws:iam::123456789012:role/ADFS-Dev
+
+Additional Providers
+--------------------
+By creating additional entry points on ``awsprocesscreds.saml_form_authenticators``,
+you can extend this tool without editing the core code
 
 .. _AWS CLI Config docs: http://docs.aws.amazon.com/cli/latest/topic/config-vars.html#cli-aws-help-config-vars
